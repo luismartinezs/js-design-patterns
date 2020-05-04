@@ -7,7 +7,7 @@ var myCar = {
   brake () {
     console.log('Stop! I am applying brakes')
   },
-  Panic () {
+  panic () {
     console.log('wait. how do you stop this thing?')
   }
 }

@@ -1,1 +1,1 @@
-Code snippets from here: https://codesource.io/javascript-design-patterns/
+(some) Code snippets from here: https://codesource.io/javascript-design-patterns/

@@ -1,0 +1,1 @@
+Examples from https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/this%20%26%20object%20prototypes/ch6.md

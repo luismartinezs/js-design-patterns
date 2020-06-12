@@ -38,13 +38,31 @@ const ApiInterface = function (implementation) {
 const magic = (function makeMagic () {
   const name = 'magic'
   function get () {
-    console.log(name)
+    console.log(name + ' GET')
   }
   function post () {
-    console.log('POST')
+    console.log(name + ' POST')
   }
   function del () {
-    console.log('DELETE')
+    console.log(name + ' DELETE')
+  }
+  return {
+    get,
+    post,
+    delete: del
+  }
+})()
+
+const auth = (function makeAuth () {
+  const name = 'auth'
+  function get () {
+    console.log(name + ' GET')
+  }
+  function post () {
+    console.log(name + ' POST')
+  }
+  function del () {
+    console.log(name + ' DELETE')
   }
   return {
     get,
@@ -58,3 +76,9 @@ const magicApi = ApiInterface(magic) // Will throw error if magic does not have 
 magicApi.get()
 magicApi.post()
 magicApi.delete()
+
+const authApi = ApiInterface(auth)
+
+authApi.get()
+authApi.post()
+authApi.delete()

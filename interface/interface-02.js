@@ -3,36 +3,25 @@
 const ApiInterface = function (implementation) {
   // required methods
   const methods = ['get', 'post', 'delete']
+  const errorMsg =
+    'ApiInterface: Provide an api implementation object as argument, that exposes the methods: ' +
+    methods.join(', ')
 
   if (!implementation) {
-    throw new Error(
-      'ApiInterface: Provide an api implementation object as argument, that exposes the methods: ' +
-        methods.join(', ')
-    )
+    throw new Error(errorMsg)
   }
 
-  let api
-  let notFoundMethods = []
   try {
-    api = methods.reduce((acc, method) => {
+    return methods.reduce((acc, method) => {
       if (typeof implementation[method] === 'undefined') {
-        notFoundMethods.push(method)
-        return acc
+        throw new Error(errorMsg)
       }
       acc[method] = implementation[method]
       return acc
     }, {})
-    if (notFoundMethods.length) {
-      throw new Error(
-        `Api interface requires implementation of method(s) ${notFoundMethods.join(
-          ', '
-        )}`
-      )
-    }
   } catch (err) {
     console.error(err)
   }
-  return api
 }
 
 const magic = (function makeMagic () {
@@ -46,6 +35,7 @@ const magic = (function makeMagic () {
   function del () {
     console.log(name + ' DELETE')
   }
+
   return {
     get,
     post,

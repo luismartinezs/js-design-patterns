@@ -1,3 +1,5 @@
+// This one was created by me from scratch
+
 const ApiInterface = function (implementation) {
   // required methods
   const methods = ['get', 'post', 'delete']
